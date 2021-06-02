@@ -23,6 +23,7 @@
                </tr>
                <tr>
                     <td colspan="2">
+                        <input type="Submit" value="Resetear" />
                     </td>
                </tr>
             </table>
