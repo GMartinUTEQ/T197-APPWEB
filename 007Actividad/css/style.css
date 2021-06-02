@@ -1,0 +1,24 @@
+div{
+    text-align:center;
+    width:100%;
+}
+
+table{
+
+    width:50%;
+    margin:auto;
+}
+th{
+    background-color: blacK;
+    color:white;
+    font-weight: bold;
+    width: 16%;
+    border-style: solid;
+    border-width: 1pt;
+}
+td{
+    width: 16%;
+    border-style: solid;
+    border-width: 1pt;
+    text-align: center;
+}
