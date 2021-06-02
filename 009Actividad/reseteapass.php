@@ -58,7 +58,7 @@ if(isset($_REQUEST["passuno"]) && isset($_REQUEST["passdos"]))
                 die("");
             }
 
-            $sql = "update usuario set pass = '$pass1', ultcambio = now() where alias = '$usralias';";
+            $sql = "update usuario set pass = md5('$pass1'), ultcambio = now() where alias = '$usralias';";
 
             if($conn->query($sql) === TRUE)
             {
