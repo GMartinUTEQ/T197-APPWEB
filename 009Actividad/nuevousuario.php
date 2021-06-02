@@ -12,15 +12,13 @@
             {
 
                 include("conexion.php");
-                
                 if($conn->connect_error)
                 {
                     echo "Error de conexión a MySQL";
                     die("");
                 }
-                Echo ="Aqui si";
-                $sql = "insert into usuario(nombre, pass) values('$usralias', '$pass1');";
-                $echo $sql;
+                $sql = "insert into usuario(alias, pass) values('$usralias', md5('$pass1'));";
+                echo $sql;
                 if($conn->query($sql) === TRUE)
                 {
                     echo "<h1>Usuario creado exitosamente, </h1><a href='index.php'>inicie sesión</a>";
