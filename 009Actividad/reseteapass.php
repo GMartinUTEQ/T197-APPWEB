@@ -3,7 +3,7 @@
         <title>Resetea tu contraseña</title>
     </head>
     <body>
-        <form>
+        <form action="reseteapass.php" method="POST">
             <table style="width:50%">
                 <tr>
                     <td>
@@ -30,3 +30,20 @@
         </form>
     </body>
 </html>
+<?php
+
+if(isset($_REQUEST["passuno"]) && isset($_REQUEST["passdos"]))
+{
+    $pass1 = $_REQUEST["passuno"];
+    $pass2 = $_REQUEST["passdos"];
+
+    if(!empty($pass1) && !empty($pass2))
+    {
+        if($pass1 == $pass2)
+        {
+            
+        }
+    }
+}
+
+?>
