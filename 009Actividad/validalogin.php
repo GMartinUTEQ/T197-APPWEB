@@ -17,7 +17,7 @@
 
         if($result->num_rows > 0)
         {
-            $sql = "select * from usuario where alias = '$usuario' and pass = md5('$password');"
+            $sql = "select * from usuario where alias = '$usuario' and pass = md5('$password');";
             if($result->num_rows > 0)
             {
                 echo "Bienvenido, $usuario";

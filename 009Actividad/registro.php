@@ -3,7 +3,7 @@
         <title>Registro</title>
     </head>
     <body>
-        <form action="validalogin.php" method="POST">
+        <form action="nuevousuario.php" method="POST">
             <table style="width:50%;">
                 <tr>
                     <td>Usuario:</td>
