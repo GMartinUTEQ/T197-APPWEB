@@ -6,6 +6,14 @@
         <form action="reseteapass.php" method="POST">
             <table style="width:50%">
                 <tr>
+                        <td>
+                            Escriba tu usuario:
+                        </td>
+                        <td>
+                            <input type="text" name="usralias" />
+                        </td>
+                </tr>
+                <tr>
                     <td>
                         Escriba una nueva contraseña:
                     </td>
@@ -36,12 +44,30 @@ if(isset($_REQUEST["passuno"]) && isset($_REQUEST["passdos"]))
 {
     $pass1 = $_REQUEST["passuno"];
     $pass2 = $_REQUEST["passdos"];
+    $usralias = $_REQUEST["usralias"];
 
     if(!empty($pass1) && !empty($pass2))
     {
         if($pass1 == $pass2)
         {
+            include("conexion.php");
             
+            if($conn->connect_error)
+            {
+                echo "Error de conexión a MySQL";
+                die("");
+            }
+
+            $sql = "update usuario set pass = '$pass1', ultcambio = now() where alias = '$usralias';";
+
+            if($conn->query($sql) === TRUE)
+            {
+                echo "<h1>Contraseña cambiada exitosamente, </h1><a href='index.php'>ingrese de nuevo</a>";
+            }
+            else
+            {
+                echo "<h1>Usuario o constraseñas incorrectos</h1>";
+            }
         }
     }
 }
