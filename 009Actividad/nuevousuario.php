@@ -21,7 +21,7 @@
                 echo $sql;
                 if($conn->query($sql) === TRUE)
                 {
-                    echo "<h1>Usuario creado exitosamente, </h1><a href='index.php'>inicie sesión</a>";
+                    echo "<h1>Usuario creado exitosamente, </h1><a href='index.html'>inicie sesión</a>";
                 }
                 else
                 {
