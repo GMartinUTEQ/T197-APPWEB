@@ -1,3 +1,13 @@
+<?php
+    $alias_req = "";
+    $alias_dis = "";
+    if(isset($_REQUEST["alias"]))
+    {
+        $alias_req = $_REQUEST["alias"];
+        $alias_dis = "disabled";
+    }
+?>
+
 <html>
     <head>
         <title>Resetea tu contraseña</title>
@@ -10,7 +20,7 @@
                             Escriba tu usuario:
                         </td>
                         <td>
-                            <input type="text" name="usralias" />
+                            <input type="text" name="usralias" <?= $alias_dis ?>  value="<?php echo $alias_req ?>" />
                         </td>
                 </tr>
                 <tr>
