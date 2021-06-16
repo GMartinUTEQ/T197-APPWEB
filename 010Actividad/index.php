@@ -22,32 +22,49 @@
     <div class="wrapper">
         <!-- Sidebar  -->
         
-        <?php include("menu.html"); ?>
 
-        <!-- Page Content  -->
-        <div id="content">
+<!-- Page Content  -->
+<div id="content">
 
-            <?php include("header.html"); ?>
+    
 
-            <h2>Collapsible Sidebar Using Bootstrap 4</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            
+            <!--
 
-            <div class="line"></div>
-
-            <!--<h2>Lorem Ipsum Dolor</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-            <div class="line"></div>
-
-            <h2>Lorem Ipsum Dolor</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-            <div class="line"></div>
-
-            <h3>Lorem Ipsum Dolor</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                
+                
+                
+                
             -->
+            <div class="row">
+                <div class="col-sm-2">
+                </div>
+                <div class="col-sm-8 text-center" style="margin-top:50px">
+
+                    <img style="max-width:300px" src="imgs/Logo_uteq.png"/>
+                    <h2 style="margin-top:20px">Acceso al sistema</h2>
+                    <form action="validalogin.php" method="POST" class="needs-validation" novalidate>
+                        <div class="form-group">
+                            <label for="usralias">Nombre de usuario:</label>
+                            <input type="text"  class="form-control" required  name="usralias" id="usralias" />
+                            <div class="valid-feedback">Valid.</div>
+                            <div class="invalid-feedback">Please fill out this field.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="passuno">Contraseña:</label>
+                            <input type="password" class="form-control" required id="usrpass" name="usrpass" />
+                            <div class="valid-feedback">Valid.</div>
+                            <div class="invalid-feedback">Please fill out this field.</div>
+                        </div>
+                        
+                        <input type="submit" class="btn btn-dark" value="Entrar"/>
+                    </form>
+                </div>
+            </div>
+
+            <div class="line"></div>
+
+            
         </div>
         
     </div>
@@ -66,6 +83,26 @@
                 $('#sidebar').toggleClass('active');
             });
         });
+    </script>
+    <script>
+        // Disable form submissions if there are invalid fields
+        (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+            // Get the forms we want to add validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+            });
+        }, false);
+        })();
     </script>
 </body>
 
