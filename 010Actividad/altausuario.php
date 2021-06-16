@@ -1,3 +1,12 @@
+<?php
+    $alias_req = "";
+    $alias_dis = "";
+    if(isset($_REQUEST["alias"]))
+    {
+        $alias_req = $_REQUEST["alias"];
+        $alias_dis = "disabled";
+    }
+?>
 <!DOCTYPE html>
 <html>
 
@@ -40,7 +49,7 @@
             <form action="nuevousuario.php" method="POST" class="needs-validation" novalidate>
                 <div class="form-group">
                     <label for="usralias">Nombre de usuario:</label>
-                    <input type="text"  class="form-control" required name="usralias" id="usralias" />
+                    <input type="text"  class="form-control" <?= $alias_dis  ?> value="<?= $alias_req ?>" name="usralias" id="usralias" />
                     <div class="valid-feedback">Valid.</div>
                     <div class="invalid-feedback">Please fill out this field.</div>
                 </div>
@@ -104,3 +113,38 @@
 </body>
 
 </html>
+<?php
+
+if(isset($_REQUEST["passuno"]) && isset($_REQUEST["passdos"]))
+{
+    $pass1 = $_REQUEST["passuno"];
+    $pass2 = $_REQUEST["passdos"];
+    $usralias = $_REQUEST["usralias"];
+
+    if(!empty($pass1) && !empty($pass2))
+    {
+        if($pass1 == $pass2)
+        {
+            include("conexion.php");
+            
+            if($conn->connect_error)
+            {
+                echo "Error de conexión a MySQL";
+                die("");
+            }
+
+            $sql = "update usuario set pass = md5('$pass1'), ultcambio = now() where alias = '$usralias';";
+
+            if($conn->query($sql) === TRUE)
+            {
+                echo "<h1 class='btn btn-success'>Contraseña cambiada exitosamente, </h1><a href='index.html'>ingrese de nuevo</a>";
+            }
+            else
+            {
+                echo "<h1>Usuario o constraseñas incorrectos</h1>";
+            }
+        }
+    }
+}
+
+?>

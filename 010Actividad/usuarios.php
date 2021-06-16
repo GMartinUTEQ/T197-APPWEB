@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -7,12 +8,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <title>Collapsible sidebar using Bootstrap 4</title>
-
+    
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <!-- Our Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
-
+    
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
@@ -51,8 +52,8 @@
                                         <td>" . $row["idusuario"] . "</td>
                                         <td>" . $row["alias"] . "</td>
                                         <td>" . $row["ultcambio"] . "</td>
-                                        <td><a href='borrarusuario.php?idusuario=" . $row["idusuario"] . "'><img style='max-height:30px;' src='imgs/eliminar.png'/></a></td>
-                                        <td><a href='reseteapass.php?alias=" .$row["alias"] . "'><img style='max-height:30px;' src='imgs/actualizar.png'/></a></td>
+                                        <td><a href='borrarusuario.php?idusuario=" . $row["idusuario"] . "'><i class='fas fa-trash-alt fa-2x'></i></a></td>
+                                        <td><a href='altausuario.php?alias=" .$row["alias"] . "'><i class='fas fa-edit fa-2x'></i></a></td>
                                     </tr>";
                             }
                             echo "</table><div><br/>";
@@ -88,3 +89,39 @@
 </body>
 
 </html>
+
+<?php
+
+if(isset($_REQUEST["passuno"]) && isset($_REQUEST["passdos"]))
+{
+    $pass1 = $_REQUEST["passuno"];
+    $pass2 = $_REQUEST["passdos"];
+    $usralias = $_REQUEST["usralias"];
+
+    if(!empty($pass1) && !empty($pass2))
+    {
+        if($pass1 == $pass2)
+        {
+            include("conexion.php");
+            
+            if($conn->connect_error)
+            {
+                echo "Error de conexión a MySQL";
+                die("");
+            }
+
+            $sql = "update usuario set pass = md5('$pass1'), ultcambio = now() where alias = '$usralias';";
+
+            if($conn->query($sql) === TRUE)
+            {
+                echo "<h1 class='btn btn-success'>Contraseña cambiada exitosamente, </h1><a href='index.html'>ingrese de nuevo</a>";
+            }
+            else
+            {
+                echo "<h1>Usuario o constraseñas incorrectos</h1>";
+            }
+        }
+    }
+}
+
+?>
