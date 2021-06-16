@@ -90,38 +90,3 @@
 
 </html>
 
-<?php
-
-if(isset($_REQUEST["passuno"]) && isset($_REQUEST["passdos"]))
-{
-    $pass1 = $_REQUEST["passuno"];
-    $pass2 = $_REQUEST["passdos"];
-    $usralias = $_REQUEST["usralias"];
-
-    if(!empty($pass1) && !empty($pass2))
-    {
-        if($pass1 == $pass2)
-        {
-            include("conexion.php");
-            
-            if($conn->connect_error)
-            {
-                echo "Error de conexión a MySQL";
-                die("");
-            }
-
-            $sql = "update usuario set pass = md5('$pass1'), ultcambio = now() where alias = '$usralias';";
-
-            if($conn->query($sql) === TRUE)
-            {
-                echo "<h1 class='btn btn-success'>Contraseña cambiada exitosamente, </h1><a href='index.html'>ingrese de nuevo</a>";
-            }
-            else
-            {
-                echo "<h1>Usuario o constraseñas incorrectos</h1>";
-            }
-        }
-    }
-}
-
-?>
