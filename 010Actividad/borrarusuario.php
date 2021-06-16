@@ -14,7 +14,8 @@
         if($conn->query($sql) === TRUE)
         {
             echo "<h1>Usuario eliminado exitosamente</h1>";
-            header("location:usuarios.php");
+            //header("location:usuarios.php");
+            echo "<script>window.location.href='usuarios.php'</script>";
         }
         else
         {
