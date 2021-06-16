@@ -78,7 +78,7 @@ if(isset($_REQUEST["passuno"]) && isset($_REQUEST["passdos"]))
 
             if($conn->query($sql) === TRUE)
             {
-                echo "<h1 class='btn btn-success'>Contraseña cambiada exitosamente, </h1><a href='index.html'>ingrese de nuevo</a>";
+                echo "<script>alert('Contraseña cambiada correctamente');window.location.href='usuarios.php'</script>";
             }
             else
             {

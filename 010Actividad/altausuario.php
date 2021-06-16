@@ -1,10 +1,14 @@
 <?php
     $alias_req = "";
     $alias_dis = "";
+    $target = "nuevousuario.php";
+    $texto = "Alta de usuario";
     if(isset($_REQUEST["alias"]))
     {
         $alias_req = $_REQUEST["alias"];
         $alias_dis = "disabled";
+        $target = "altausuario.php";
+        $texto = "Actualizar contraseña";
     }
 ?>
 <!DOCTYPE html>
@@ -37,16 +41,9 @@
 
     <?php include("header.html"); ?>
 
-            <h2>Alta de usuarios</h2>
-            <!--
-
-                
-                
-                
-                
-            -->
-
-            <form action="nuevousuario.php" method="POST" class="needs-validation" novalidate>
+           <h2><?= $texto ?></h2>
+            
+            <?php echo '<form action="' . $target . '" method="POST" class="needs-validation" novalidate>'; ?>
                 <div class="form-group">
                     <label for="usralias">Nombre de usuario:</label>
                     <input type="text"  class="form-control" <?= $alias_dis  ?> value="<?= $alias_req ?>" name="usralias" id="usralias" />
@@ -65,7 +62,7 @@
                     <div class="valid-feedback">Valid.</div>
                     <div class="invalid-feedback">Please fill out this field.</div>
                 </div>
-                <input type="submit" class="btn btn-dark" value="Crear usuario"/>
+                <input type="submit" class="btn btn-dark" value="<?= $texto ?>"/>
             </form>
 
             <div class="line"></div>
@@ -137,7 +134,7 @@ if(isset($_REQUEST["passuno"]) && isset($_REQUEST["passdos"]))
 
             if($conn->query($sql) === TRUE)
             {
-                echo "<h1 class='btn btn-success'>Contraseña cambiada exitosamente, </h1><a href='index.html'>ingrese de nuevo</a>";
+                echo "<script>alert('Contraseña cambiada correctamente');window.location.href='usuarios.php'</script>";
             }
             else
             {
