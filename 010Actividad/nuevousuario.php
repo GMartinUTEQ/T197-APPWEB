@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php
 
     if(isset($_REQUEST["passuno"]) && isset($_REQUEST["passdos"]))

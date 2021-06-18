@@ -1,8 +1,7 @@
 <?php
-    session_start();
     if(!isset($_SESSION["Usuario"]))
     {
-        echo "<script>window.location.href='index.php'</script>";
+        //echo "<script>window.location.href='index.php'</script>";
     }
 ?>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">

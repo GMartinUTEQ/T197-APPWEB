@@ -1,4 +1,5 @@
-<?php
+<?php 
+
     if(isset($_REQUEST["usralias"]) && isset($_REQUEST["usrpass"]))
     {
         include("conexion.php");
@@ -11,7 +12,7 @@
          
         $usuario = $_REQUEST["usralias"];
         $password = $_REQUEST["usrpass"];
-        session_start();
+        
         $_SESSION["Usuario"] = $usuario;
         $sql = "select * from usuario where alias = '$usuario'";
         echo $sql;

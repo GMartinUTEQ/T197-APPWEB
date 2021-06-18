@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php
     $alias_req = "";
     $alias_dis = "";
