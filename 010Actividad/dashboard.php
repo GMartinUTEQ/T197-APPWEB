@@ -26,7 +26,7 @@
 <!-- Page Content  -->
 <div id="content" class="text-center">
 
-    <?php include("header.html"); ?>
+    <?php include("header.php"); ?>
 
             <h4>Seleccione una opción del menú</h4>
             

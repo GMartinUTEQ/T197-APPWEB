@@ -8,9 +8,11 @@
             echo "Error de conexión." . $conn->connect_error;
             die("Error de conexión." . $conn->connect_error);
         }
-        
+         
         $usuario = $_REQUEST["usralias"];
         $password = $_REQUEST["usrpass"];
+        session_start();
+        $_SESSION["Usuario"] = $usuario;
         $sql = "select * from usuario where alias = '$usuario'";
         echo $sql;
         $result = $conn->query($sql);

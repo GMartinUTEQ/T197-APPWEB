@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 
@@ -27,7 +26,7 @@
 <!-- Page Content  -->
 <div id="content">
 
-    <?php include("header.html"); ?>
+    <?php include("header.php"); ?>
 
             <h2>Lista de usuarios</h2>
             <a class="btn btn-dark" style="margin-bottom:15px" href="altausuario.php">Agregar usuario</a>
