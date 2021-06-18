@@ -6,7 +6,7 @@
     if(isset($_REQUEST["alias"]))
     {
         $alias_req = $_REQUEST["alias"];
-        $alias_dis = "disabled";
+        $alias_dis = "readonly";
         $target = "altausuario.php";
         $texto = "Actualizar contraseña";
     }
@@ -63,6 +63,7 @@
                     <div class="invalid-feedback">Please fill out this field.</div>
                 </div>
                 <input type="submit" class="btn btn-dark" value="<?= $texto ?>"/>
+                <a href="usuarios.php" class="btn btn-dark">Ver usuarios</a>
             </form>
 
             <div class="line"></div>

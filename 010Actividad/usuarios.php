@@ -30,6 +30,7 @@
     <?php include("header.html"); ?>
 
             <h2>Lista de usuarios</h2>
+            <a class="btn btn-dark" style="margin-bottom:15px" href="altausuario.php">Agregar usuario</a>
             <?php
     
                         include("conexion.php");
