@@ -1,5 +1,5 @@
 <?php 
-
+    session_start();
     if(isset($_REQUEST["usralias"]) && isset($_REQUEST["usrpass"]))
     {
         include("conexion.php");
@@ -15,7 +15,7 @@
         
         $_SESSION["Usuario"] = $usuario;
         $sql = "select * from usuario where alias = '$usuario'";
-        echo $sql;
+       
         $result = $conn->query($sql);
 
         if($result->num_rows > 0)

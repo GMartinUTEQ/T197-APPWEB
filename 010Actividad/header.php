@@ -1,8 +1,11 @@
 <?php
+    session_start();
     if(!isset($_SESSION["Usuario"]))
     {
-        //echo "<script>window.location.href='index.php'</script>";
+        //echo "Error en la sesión";
+        echo "<script>window.location.href='index.php'</script>";
     }
+    
 ?>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid" >
@@ -18,7 +21,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="nav navbar-nav ml-auto">
                 <li class="nav-item active text-center" >
-                    <a style="color:#0e160f" class="nav-link" href="#"><i style="color:#0e160f" class="fas fa-user-circle fa-2x"></i><br/>Usuario</a>
+                    <a style="color:#0e160f" class="nav-link" href="#"><i style="color:#0e160f" class="fas fa-user-circle fa-2x"></i><br/><?= $_SESSION["Usuario"]; ?></a>
                 </li>
             </ul>
         </div>
