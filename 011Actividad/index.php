@@ -89,12 +89,12 @@
                                                 <div class='bi-star-fill'></div>
                                                 <div class='bi-star-fill'></div>
                                             </div>
-                                            <span class='text-muted text-decoration-line-through'>$" . ($row["precioproducto"] * 1.12) . "</span>
-                                            $" . $row["precioproducto"] . "
+                                            <span class='text-muted text-decoration-line-through'>$" . number_format((float)($row["precioproducto"] * 1.12), 2, '.', '')  . "</span>
+                                            <br/>$" . number_format((float)$row["precioproducto"], 2, '.', '')  . "
                                         </div>
                                     </div>
                                     <div class='card-footer p-4 pt-0 border-top-0 bg-transparent'>
-                                        <div class='text-center'><a class='btn btn-outline-dark mt-auto' href='#'>Ver Detalles</a></div>
+                                        <div class='text-center'><a class='btn btn-outline-dark mt-auto' href='producto.php?idp=" . $row["idproducto"] . "'>Ver Detalles</a></div>
                                     </div>
                                 </div>
                             </div>";
