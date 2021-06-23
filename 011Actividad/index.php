@@ -60,6 +60,31 @@
 
                 <?php
                   
+                  include("conexion.php");
+
+                    if($conn->connect_error)
+                    {
+                        echo "Error de conexión." . $conn->connect_error;
+                        die("Error de conexión." . $conn->connect_error);
+                    }
+                    $sql = "select * from producto";
+                    $result = $conn->query($sql);
+
+                    if($result->num_rows > 0) //6 
+                    {
+                        
+                        while($row = $result->fetch_assoc()) //6 vueltas
+                        {
+                            
+                        }
+                        
+                    }
+                    else
+                    {
+                        echo "<h1>No se encontraron datos</h1>";
+                    }
+
+
                   echo "<div class='col mb-5'>
                         <div class='card h-100'>
                             <div class='badge bg-dark text-white position-absolute' style='top: 0.5rem; right: 0.5rem'>Sale</div>
