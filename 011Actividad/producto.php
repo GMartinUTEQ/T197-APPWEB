@@ -78,11 +78,14 @@
                                         </div>
                                         <p class='lead'>" . $row["descripcionproducto"] . "</p>
                                         <div class='d-flex'>
-                                            <input class='form-control text-center me-3' id='inputQuantity' type='num' min='0' max='" . $row["inventarioproducto"] . "' value='1' style='max-width: 3rem' />
-                                            <button class='btn btn-outline-dark flex-shrink-0' type='button'>
-                                                <i class='bi-cart-fill me-1'></i>
-                                                Agregar al carrito
-                                            </button>
+                                            <form method='post' action='agregacarrito.php'>
+                                                <input type='number' style='display:none;' id='idpro' name='idpro'  value='" . $row["idproducto"] . "' />
+                                                <input class='form-control text-center me-3' id='cantpro' name='cantpro' type='number' min='1' max='" . $row["inventarioproducto"] . "' value='1' style='max-width: 6rem' />
+                                                <button class='btn btn-outline-dark flex-shrink-0' type='submit'>
+                                                    <i class='bi-cart-fill me-1'></i>
+                                                    Agregar al carrito
+                                                </button>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
