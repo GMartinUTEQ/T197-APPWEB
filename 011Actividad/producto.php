@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -34,11 +35,11 @@
                         </li>
                     </ul>
                     <form class="d-flex">
-                        <button class="btn btn-outline-dark" type="submit">
+                        <a href="carrito.php" class="btn btn-outline-dark" >
                             <i class="bi-cart-fill me-1"></i>
-                            Cart
-                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-                        </button>
+                            Carrito
+                            <span class="badge bg-dark text-white ms-1 rounded-pill"><?php if(isset($_SESSION["CarritoCount"])){echo $_SESSION["CarritoCount"];}else{echo "0";} ?></span>
+                        </a>
                     </form>
                 </div>
             </div>

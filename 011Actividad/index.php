@@ -35,11 +35,11 @@
                         </li>
                     </ul>
                     <form class="d-flex">
-                        <button class="btn btn-outline-dark" type="submit">
+                        <a href="carrito.php" class="btn btn-outline-dark" >
                             <i class="bi-cart-fill me-1"></i>
-                            Cart
+                            Carrito
                             <span class="badge bg-dark text-white ms-1 rounded-pill"><?php if(isset($_SESSION["CarritoCount"])){echo $_SESSION["CarritoCount"];}else{echo "0";} ?></span>
-                        </button>
+                        </a>
                     </form>
                 </div>
             </div>
@@ -61,13 +61,13 @@
 
                 <?php
                   //session_start();
-                  if(isset($_SESSION["carrito"]))
+                  if(!isset($_SESSION["carrito"]))
                   {
                      $_SESSION['carrito'] = array();
                      $_SESSION['CarritoCount'] = 0; 
                   }
                   
-                  include("conexion.php");
+                    include("conexion.php");
 
                     if($conn->connect_error)
                     {
