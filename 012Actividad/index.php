@@ -9,7 +9,7 @@
             Nombre producto:<br/>
             <input type="text" id="nompro" nombre="nompro"/><br/>
             Precio producto:<br/>
-            <input type="text" id="idpro" nombre="idpro"/><br/>
+            <input type="text" id="preciopro" nombre="preciopro"/><br/>
             Talla:<br/>
             <select id="talla" name="talla">
                 <option value="Ch">Chica</option>
