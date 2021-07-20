@@ -3,6 +3,7 @@
         <title>Catálogo de productos</title>
     </head>
     <body>
+    
         <form action="altaproducto" method="post">
             ID producto:<br/>
             <input type="text" id="idpro" readonly nombre="idpro"/><br/>
