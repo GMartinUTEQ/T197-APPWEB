@@ -4,6 +4,8 @@
     </head>
     <body>
         <?php
+            $nomBoton = "Guardar";
+            $formAction = "altaproducto.php";
             $id = 0;
             $nombre = "";
             $precio = 0;
@@ -14,6 +16,8 @@
 
             if(isset($_REQUEST["idpro"]))
             {
+                $nomBoton = "Actualizar";
+                $formAction = "actualizaproducto.php";
                 include("conexion.php");
                 // Check connection
                 if ($conn->connect_error) {
@@ -40,9 +44,9 @@
                 
             }
         ?>
-        <form action="altaproducto" method="post">
+        <form action="<?=$formAction?>" method="post">
             ID producto:<br/>
-            <input type="text" id="idpro" readonly nombre="idpro" value="<?=$id?>"/><br/>
+            <input type="text" id="idpro" readonly name="idpro" value="<?=$id?>"/><br/>
             Nombre producto:<br/>
             <input type="text" id="nompro" name="nompro" value="<?=$nombre?>"/><br/>
             Precio producto:<br/>
@@ -108,7 +112,7 @@
                     $conn->close();
                 ?>  
             </select><br/>
-            <input type="submit" value="Guardar"/>
+            <input type="submit" value="<?=$nomBoton?>"/>
 
         </form>
     </body>
