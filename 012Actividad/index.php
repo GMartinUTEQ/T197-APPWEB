@@ -5,20 +5,20 @@
     <body>
         <form action="altaproducto" method="post">
             ID producto:<br/>
-            <input type="text" id="idpro" nombre="idpro"/><br/>
+            <input type="text" id="idpro" readonly nombre="idpro"/><br/>
             Nombre producto:<br/>
-            <input type="text" id="nompro" nombre="nompro"/><br/>
+            <input type="text" id="nompro" name="nompro"/><br/>
             Precio producto:<br/>
-            <input type="text" id="preciopro" nombre="preciopro"/><br/>
+            <input type="text" id="preciopro" name="preciopro"/><br/>
             Talla:<br/>
             <select id="talla" name="talla">
-                <option value="Ch">Chica</option>
-                <option value="Md">Mediana</option>
+                <option value="1">Chica</option>
+                <option value="2">Mediana</option>
             </select><br/>
             Marca:<br/>
             <select id="marca" name="marca">
-                <option value="AE">American Eagle</option>
-                <option value="GAP">GAP</option>
+                <option value="1">American Eagle</option>
+                <option value="2">GAP</option>
             </select><br/>
             <input type="submit" value="Guardar"/>
 
