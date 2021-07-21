@@ -11,6 +11,8 @@
             $precio = 0;
             $idtalla = 0;
             $idmarca = 0;
+            $imagenurl = "";
+            $idimagen = 0;
 
             
 
@@ -24,7 +26,7 @@
                 die("Connection failed: " . $conn->connect_error);
                 }
 
-                $sql = "Select * from producto where idproducto = " . $_REQUEST["idpro"];
+                $sql = "Select * from producto left outer join imagen on imagen.idproducto = producto.idproducto where producto.idproducto = " . $_REQUEST["idpro"];
                 $result = $conn->query($sql);
 
                 if ($result->num_rows > 0) {
@@ -35,6 +37,8 @@
                     $precio = $row["precio"];
                     $idtalla = $row["idtalla"];
                     $idmarca = $row["idmarca"];
+                    $imagenurl = $row["url"];
+                    $idimagen = $row["idimagen"];
                 }
                 } else {
                   //   echo "<option>Ninguno</option>";
@@ -46,7 +50,7 @@
         ?>
         <form action="<?=$formAction?>" method="post"  enctype="multipart/form-data">
             ID producto:<br/>
-            <input type="text" id="idpro" readonly name="idpro" value="<?=$id?>"/><br/>
+            <input type="text" id="idpro" readonly name="idpro" value="<?=$_REQUEST["idpro"]?>"/><br/>
             Nombre producto:<br/>
             <input type="text" id="nompro" name="nompro" value="<?=$nombre?>"/><br/>
             Precio producto:<br/>
@@ -114,6 +118,21 @@
             </select><br/>
             Seleccionar una imagen:<br/>
             <input type="file" name="fileToUpload" id="fileToUpload"><br/><br/>
+            <table>
+                
+                    <?php 
+
+                    if(isset($imagenurl) && !is_null($imagenurl) && $imagenurl != "")
+                    {
+                        echo '<tr><td><a href="eliminaimagen.php?idimg=' . $idimagen . '">Eliminar</a></td></tr>';
+                        echo '<tr><td><img style="max-height:100px" src="uploads/'. $imagenurl. '" /></td></tr>';
+                    }
+
+                   
+
+                    ?>
+               
+            </table>
             <input type="submit" value="<?=$nomBoton?>"/>
 
         </form>
