@@ -44,7 +44,7 @@
                 
             }
         ?>
-        <form action="<?=$formAction?>" method="post">
+        <form action="<?=$formAction?>" method="post"  enctype="multipart/form-data">
             ID producto:<br/>
             <input type="text" id="idpro" readonly name="idpro" value="<?=$id?>"/><br/>
             Nombre producto:<br/>
@@ -112,6 +112,8 @@
                     $conn->close();
                 ?>  
             </select><br/>
+            Seleccionar una imagen:<br/>
+            <input type="file" name="fileToUpload" id="fileToUpload"><br/><br/>
             <input type="submit" value="<?=$nomBoton?>"/>
 
         </form>
